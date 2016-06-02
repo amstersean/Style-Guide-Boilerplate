@@ -204,15 +204,15 @@ body {
 /* Navigation
 ---------------------------------------------------------------------------- */
 .sg-nav-toggle {
-  background-color: #000;
+  background-color: #7e4082;
   border-radius: 5px;
-  border: 1px solid #7C7C7C;
+  border: 1px solid #402b56;
   color: #fff;
   float: right;
   font-size: 16px;
   font-size: 1rem;
   padding: 5px 8px; /* For older browsers */
-  padding: 0.3125rem 0.5rem;
+  padding: 0.5rem 0.8rem;
   text-decoration: none;
   -webkit-transition: all .15s ease-in;
      -moz-transition: all .15s ease-in;
