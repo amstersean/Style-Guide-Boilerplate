@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   
   <!-- Google Font Lato -->
-<link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -69,7 +69,7 @@
         <div class="sg-info">
           <div class="sg-about sg-section">
             <h2 id="sg-about" class="sg-h2">Getting Started</h2>
-            <p>Welcome to frontline’s awesome we guideline. This tool is to help unify our web designers and developers around a consistent style but in turn also speed up development. </p>
+            <p>Welcome to frontline’s awesome web guideline. This tool is to help unify our web designers and developers around a consistent style but in turn also speed up development. </p>
           </div><!--/.sg-about-->
 
           <!-- Manually add your UI colors here. -->
