@@ -388,6 +388,7 @@ ol.linenums li {
 .sg-color {
   *display: inline;
   zoom: 1;
+  cursor: pointer;
 }
 /* End IE 7 Fixes */
 /**

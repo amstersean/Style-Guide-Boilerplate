@@ -57,11 +57,11 @@
 </div>
 
 <div class="row sg-base-styles">
-  <h1 class="page-header">Base Styles</h1>
+  <h1 class="page-header">Form Elements</h1>
   <?php showMarkup('base'); ?>
   </div><!--/.sg-base-styles-->
   <div class="sg-pattern-styles">
-    <h1 class="page-header">Patterns<small> - Design and mark-up patterns unique to your site.</small></h1>
+    <h1 class="page-header">Patterns<small> - Design and mark-up patterns unique to our site</small></h1>
     <?php showMarkup('patterns'); ?>
   </div>
   <!--/.sg-pattern-styles-->
@@ -72,6 +72,8 @@
 <script src="js/dropdown.js"></script>
 <script src="js/sg-plugins.js"></script>
 <script src="js/sg-scripts.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/custom.js"></script>
 
 </body>
 </html>
