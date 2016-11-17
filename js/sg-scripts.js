@@ -1,94 +1,87 @@
 /**
  * sg-scripts.js
  */
+(function (document, undefined) {
+  "use strict";
 
-var SGB = window.SGB || {};
+  // Add js class to body
+  document.getElementsByTagName('body')[0].className+=' js';
 
-(function (w, SGB, undefined) {
 
-  var doc = w.document,
-      docEl = doc.documentElement;
-
-    // Replace no-js class with js class
-    docEl.className = docEl.className.replace(/no-js/gi,'');
-    docEl.className+=' js';
-
-  // Cut the mustard
-  if ("querySelector" in doc && Array.prototype.forEach) {
-
-    docEl.className+=' sg-enhanced';
-
-    // Syntactic sugar for querySelectorAll and event delegates courtesy
-    // @paul_irish: https://gist.github.com/paulirish/12fb951a8b893a454b32
-    var queryAll = document.querySelectorAll.bind(document);
-
-    Node.prototype.on = window.on = function (name, fn) {
-      this.addEventListener(name, fn)
-    };
-
-    NodeList.prototype.forEach = Array.prototype.forEach;
-
-    NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
-      this.forEach(function (elem, i) {
-        elem.on(name, fn)
-      })
-    };
-
-     // Add functionality to toggle classes on elements
-    function _hasClass(el, cl) {
+  // Add functionality to toggle classes on elements
+  var hasClass = function (el, cl) {
       var regex = new RegExp('(?:\\s|^)' + cl + '(?:\\s|$)');
       return !!el.className.match(regex);
-    }
+  },
 
-    function _addClass(el, cl) {
+  addClass = function (el, cl) {
       el.className += ' ' + cl;
-    }
+  },
 
-    function _removeClass(el, cl) {
+  removeClass = function (el, cl) {
       var regex = new RegExp('(?:\\s|^)' + cl + '(?:\\s|$)');
       el.className = el.className.replace(regex, ' ');
-    }
+  },
 
-    function _toggleClass(el, cl) {
-      _hasClass(el, cl) ? _removeClass(el, cl) : _addClass(el, cl);
-    }
+  toggleClass = function (el, cl) {
+      hasClass(el, cl) ? removeClass(el, cl) : addClass(el, cl);
+  };
 
-    // Public methods
-    SGB.toggleNav = function() {
-      _toggleClass(docEl, 'nav-is-active');
-    };
-
-    SGB.hideNav = function() {
-      _removeClass(docEl, 'nav-is-active');
-    };
-
-    SGB.toggleSourceCode = function() {
-      var sourceCode = this.parentNode.nextElementSibling;
-      _toggleClass(sourceCode, 'sg-source-active');
-    };
-
-    SGB.selectSourceCode = function() {
-      var range,
-          selection;
-
+  var selectText = function(text) {
+      var doc = document;
       if (doc.body.createTextRange) {
-        range = doc.body.createTextRange();
-        range.moveToElementText(this.nextSibling);
-        range.select();
-      } else if (w.getSelection) {
-        selection = w.getSelection();
-        range = doc.createRange();
-        range.selectNodeContents(this.nextSibling);
-        selection.removeAllRanges();
-        selection.addRange(range);
+          var range = doc.body.createTextRange();
+          range.moveToElementText(text);
+          range.select();
+      } else if (window.getSelection) {
+          var selection = window.getSelection();
+          var range = doc.createRange();
+          range.selectNodeContents(text);
+          selection.removeAllRanges();
+          selection.addRange(range);
       }
+  };
 
-       _toggleClass(this, 'sg-btn--select-active');
-    };
 
-    queryAll('.sg-nav-toggle').on('click', SGB.toggleNav);
-    queryAll('.sg-nav-group a').on('click', SGB.hideNav);
-    queryAll('.sg-btn--source').on('click', SGB.toggleSourceCode);
-    queryAll('.sg-btn--select').on('click', SGB.selectSourceCode);
+  // Cut the mustard
+  if ( !Array.prototype.forEach ) {
+    
+    // Add legacy class for older browsers
+    document.getElementsByTagName('body')[0].className+=' legacy';
+
+  } else {
+
+    // View Source Toggle
+    [].forEach.call( document.querySelectorAll('.sg-btn--source'), function(el) {
+      el.onclick = function() {
+        var that = this;
+        var sourceCode = that.parentNode.nextElementSibling;
+        toggleClass(sourceCode, 'is-active');
+        return false;
+      };
+    }, false);
+
+    // Select Code Button
+    [].forEach.call( document.querySelectorAll('.sg-btn--select'), function(el) {
+      el.onclick = function() {
+        selectText(this.nextSibling);
+        toggleClass(this, 'is-active');
+        return false;
+      };
+    }, false);
   }
-}(this, SGB));
+
+  
+  // Add operamini class to body
+  if (window.operamini) {
+    document.getElementsByTagName('body')[0].className+=' operamini';    
+  } 
+  // Opera Mini has trouble with these enhancements
+  // So we'll make sure they don't get them
+  else {
+    // Init prettyprint
+    prettyPrint();
+  
+  }
+ 
+ })(document);
