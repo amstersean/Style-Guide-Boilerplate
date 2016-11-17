@@ -13,17 +13,29 @@
   <!--[if lt IE 9]><link rel="stylesheet" href="css/sg-style-old-ie.css"><![endif]-->
 
   <!-- https://github.com/sindresorhus/github-markdown-css -->
-  <link rel="stylesheet" href="css/github-markdown.css">
+  <link rel="stylesheet" href="css/github-markdown.css"> 
   
   <!-- prism Syntax Highlighting Styles -->
+
   <!-- <link rel="stylesheet" href="vendor/prism/prism.css"> -->
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
   <!-- Google Font Lato -->
   <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>  
-  <!-- CUSTOM CSS --- THEME CSS -->  
+  <!-- CUSTOM CSS - THEME CSS -->  
   <link rel="stylesheet" href="css/bootstrap-theme.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <!--<link rel="stylesheet" href="vendor/prism/prism.css">-->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 </head>
 <body onload="prettyPrint()">
   <a href="#main" class="sg-visually-hidden sg-visually-hidden-focusable">Skip to main content</a>
