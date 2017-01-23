@@ -88,6 +88,24 @@ echo '<li role="presentation" class="divider"></li><li role="presentation" class
         echo '</div><!--/.sg-section-->';
     endforeach;
   }
+  //FUNCTION TO CHECK IPADDRESS
+  function getRealIpAddr()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+        {
+            $ip=$_SERVER['HTTP_CLIENT_IP'];
+        }
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+        {
+            $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else
+        {
+            $ip=$_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
+    
   // Display markup view & source
   function showMarkup($type) {
     $files = array();
