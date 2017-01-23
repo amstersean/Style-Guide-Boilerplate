@@ -105,9 +105,10 @@ echo '<li role="presentation" class="divider"></li><li role="presentation" class
         }
         return $ip;
     }
-    
+
   // Display markup view & source
   function showMarkup($type) {
+
     $files = array();
     $handle=opendir('markup/'.$type);
     while (false !== ($file = readdir($handle))):
